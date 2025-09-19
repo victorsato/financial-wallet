@@ -6,11 +6,19 @@
 git clone https://github.com/victorsato/financial-wallet.git
 ```
 
-## 2. Adicionar o Laravel Sail
+## 2. Instalando dependências do Composer
 
 ```bash
-composer require laravel/sail --dev
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php84-composer:latest \
+    composer install --ignore-platform-reqs
 ```
+
+Referência Laravel Sail: 
+> https://laravel.com/docs/11.x/sail
 
 ## 3. Iniciar o Sail
 
